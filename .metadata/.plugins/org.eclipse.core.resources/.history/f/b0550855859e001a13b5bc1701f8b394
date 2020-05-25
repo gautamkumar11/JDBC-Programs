@@ -16,10 +16,7 @@ public class MyFifthJdbcProgram {
 	
 	public static void main(String[] args) throws IOException
 	{
-			
-		Connection CON = null;
-		PreparedStatement pstmt= null;
-		ResultSet res = null;
+		
 		
 		try {
 			Driver driverref = new Driver();
@@ -33,15 +30,13 @@ public class MyFifthJdbcProgram {
 			prop.load(reader);
 			
 			String dburl = prop.getProperty("url");
-			CON = DriverManager.getConnection(dburl, prop);
+			Connection CON = DriverManager.getConnection(dburl, prop);
 			
 			String query = " select * from studentsinfo where regno = ? ";
-			
-			pstmt = CON.prepareStatement(query);
-			
+			PreparedStatement pstmt = CON.prepareStatement(query);
 			pstmt.setInt(1, Integer.parseInt(args[0]));
 			
-			res = pstmt.executeQuery();
+			ResultSet res = pstmt.executeQuery();
 			
 			while(res.next())
 			{
@@ -57,28 +52,7 @@ public class MyFifthJdbcProgram {
 			
 			e.printStackTrace();
 		}
-		finally 
-		{
-			try {
-				if(CON != null)
-				{
-					CON.close();
-				}
-				if(res!= null)
-				{
-					res.close();
-				}
-				
-				if(pstmt!=null)
-				{
-					pstmt.close();
-				}
-				
-			}catch(SQLException e) {
-				e.printStackTrace();
-				
-			}
-		}
+		
 		
 	}
 
