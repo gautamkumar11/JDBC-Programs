@@ -1,0 +1,11 @@
+package com.jspiders.jdbc.first;
+
+public class MyFourthJdbcProgram {
+	
+	public static void main(String args[])
+	{
+	  	
+		
+	}
+
+}

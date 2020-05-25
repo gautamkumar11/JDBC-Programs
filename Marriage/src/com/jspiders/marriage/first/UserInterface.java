@@ -1,0 +1,25 @@
+package com.jspiders.marriage.first;
+
+import java.io.File;
+
+public class UserInterface {
+
+	public static void main(String[] args) {
+		 
+		
+		Person person = new Person();
+		person.setName("Gautam");
+		person.setAge(22);
+		person.setContact(7028870790l);
+		
+		File photo = new File("C:\\J2eePrograms\\Files\\profile.jpg");
+		
+		person.setPhoto(photo);
+		
+		
+		InsertPersonDetails personDetails = new InsertPersonDetails();
+		
+		personDetails.insert(person);
+	}
+
+}

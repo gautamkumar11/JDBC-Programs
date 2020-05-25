@@ -1,0 +1,30 @@
+package com.jspiders.jdbc.first;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import com.mysql.jdbc.Driver;
+
+public class MyFourthJdbcProgram {
+	
+	public static void main(String args[])
+	{
+	 try {
+		Driver driverref = new Driver();
+		
+		DriverManager.registerDriver(driverref);
+		String dburl= "jdbc:mysql://localhost:3306/bejm37";
+		
+		Connection CON = DriverManager.getConnection(dburl, "root", "root");
+		
+		String query = " delete from studentsinfo "
+						+ " where regno = ? ";
+	} catch (SQLException e) {
+		
+		e.printStackTrace();
+	}	
+		
+	}
+
+}

@@ -1,0 +1,13 @@
+package com.jspiders.jdbc.first;
+
+import com.mysql.jdbc.Driver;
+
+public class MyThirdJdbcProgram {
+
+	public static void main(String[] args) {
+		
+		Driver driverref= new Driver;
+
+	}
+
+}

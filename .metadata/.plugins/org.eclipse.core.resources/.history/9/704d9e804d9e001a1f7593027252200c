@@ -1,0 +1,11 @@
+package com.jspiders.marriage.first;
+
+public class InsertPersonDetails {
+
+	public void insert(Person person)
+	{
+		
+		
+	}
+	
+}

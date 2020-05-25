@@ -1,0 +1,48 @@
+package com.jspiders.jdbc.first;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import com.mysql.jdbc.Driver;
+
+public class MyFirstJdbcProgram {
+
+	public static void main(String[] args) {
+		try {
+			Driver driverref = new Driver();
+			DriverManager.registerDriver(driverref);
+			
+			String dburl = "jdbc:mysql://localhost3306/bejm37?user=root&password=root";
+			Connection CON = DriverManager.getConnection(dburl);
+			
+			/*	jdbc:mysql://[host][,failoverhost...][:port]/[database] »
+			[?propertyName1][=propertyValue1][&propertyName2][=propertyValue2]...
+		*/
+			
+			String query = " select * from studentsinfo ";
+			Statement stmt	= CON.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			
+			while(rs.next()) {
+				int regNum = rs.getInt("regno");
+				String fname = rs.getString("firstname");
+				String mname = rs.getString("middlename");
+				String lname = rs.getString("lastname");
+				
+				System.out.println("regNum : " + regNum);
+				System.out.println("firstname : " +fname);
+				System.out.println("middlename : " + mname);
+				System.out.println("lastname : " + lname);
+				
+			}
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+	}
+}

@@ -1,0 +1,11 @@
+package com.jspiders.marriage.first;
+
+public class Person {
+
+	
+	public static void main(String args[]) {
+		
+		
+	}
+	
+}
