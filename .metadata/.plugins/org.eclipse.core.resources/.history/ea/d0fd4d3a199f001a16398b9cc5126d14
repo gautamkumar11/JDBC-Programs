@@ -17,7 +17,6 @@ public class RetrievePersonDetails {
 		
 			Connection CON = null;
 			Statement stmt = null;
-			ResultSet res = null;
 		 
 		try {
 		
@@ -35,7 +34,7 @@ public class RetrievePersonDetails {
 			FileOutputStream outputStream = new FileOutputStream(file);
 			
 			stmt = CON.createStatement();
-			res = stmt.executeQuery(query);
+			ResultSet res = stmt.executeQuery(query);
 			
 			while(res.next()) {
 				
@@ -62,8 +61,8 @@ public class RetrievePersonDetails {
 				if(stmt!=null) {
 					stmt.close();
 				}
-				if(res!=null) {
-					res.close();
+				if(rs!=null) {
+					rs.close();
 				}
 			} catch (SQLException e2) {
 				e2.printStackTrace();
