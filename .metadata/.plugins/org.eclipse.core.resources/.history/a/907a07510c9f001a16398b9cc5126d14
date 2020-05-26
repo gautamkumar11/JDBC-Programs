@@ -25,7 +25,7 @@ public class InsertPersonDetails {
 		   CON = DriverManager.getConnection(dburl);
 		   
 		  String query = " insert into person  "
-				  		+ " values(?,?,?,?) ";
+				  		+ " vlaues(?,?,?,?) ";
 		  
 		FileInputStream inputStream = new FileInputStream(person.getPhoto());
 		  
@@ -37,7 +37,6 @@ public class InsertPersonDetails {
 		
 		
 		int res = pstmt.executeUpdate();
-		
 		if(res!=0) {
 			System.out.println("Record inserted");
 		}
@@ -46,24 +45,7 @@ public class InsertPersonDetails {
 			
 			e.printStackTrace();
 		}
-		finally 
-		{
-			try {
-				if(CON != null)
-				{
-					CON.close();
-				}
-				
-				if(pstmt!=null)
-				{
-					pstmt.close();
-				}
-				
-			}catch(SQLException e) {
-				e.printStackTrace();
-				
-			}
-		}
+		
 	}
 	
 }

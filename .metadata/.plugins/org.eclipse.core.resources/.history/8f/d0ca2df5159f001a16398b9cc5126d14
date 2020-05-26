@@ -11,9 +11,9 @@ public class UserInterface {
 		 
 		
 		Person person = new Person();
-		person.setName("anshu");
+		person.setName("Gautam");
 		person.setAge(22);
-		person.setContact(7028870780l);
+		person.setContact(7028870790l);
 		
 		File photo = new File("C:\\J2eePrograms\\Files\\profile.jpg");
 		

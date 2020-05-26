@@ -2,18 +2,16 @@ package com.jspiders.marriage.first;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.sql.SQLException;
 
 public class UserInterface {
 
-	public static void main(String[] args) throws SQLException, IOException {
+	public static void main(String[] args) throws FileNotFoundException {
 		 
 		
 		Person person = new Person();
-		person.setName("anshu");
+		person.setName("Gautam");
 		person.setAge(22);
-		person.setContact(7028870780l);
+		person.setContact(7028870790l);
 		
 		File photo = new File("C:\\J2eePrograms\\Files\\profile.jpg");
 		
@@ -25,8 +23,8 @@ public class UserInterface {
 		personDetails.insert(person);
 		
 		
-		RetrievePersonDetails personDetails2 = new RetrievePersonDetails();
-		personDetails2.retrieve();
+		RetrievePersonDetails personDetails = new RetrievePersonDetails();
+		personDetails.retrieve();
 		
 	}
 

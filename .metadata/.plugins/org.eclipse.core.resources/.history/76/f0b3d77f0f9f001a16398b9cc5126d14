@@ -25,7 +25,7 @@ public class InsertPersonDetails {
 		   CON = DriverManager.getConnection(dburl);
 		   
 		  String query = " insert into person  "
-				  		+ " values(?,?,?,?) ";
+				  		+ " vlaues(?,?,?,?) ";
 		  
 		FileInputStream inputStream = new FileInputStream(person.getPhoto());
 		  
