@@ -15,7 +15,7 @@ public class MySecondJdbcProgram {
 		
 		try {
 			Driver driverref=new Driver();
-			DriverManager.deregisterDriver(driverref);
+			DriverManager.registerDriver(driverref);
 			
 			String dburl= "jdbc:mysql://localhost:3306/bejm37"; 
 			CON = DriverManager.getConnection(dburl, "root", "root");
