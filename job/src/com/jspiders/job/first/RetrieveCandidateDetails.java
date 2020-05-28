@@ -16,20 +16,24 @@ public class RetrieveCandidateDetails {
 	public void retrieve() throws IOException
 	{
 		
+		Connection CON = null;
+		Statement stmt = null;
+		
+		
 		try {
 			Driver driverref = new Driver();
-			 DriverManager.registerDriver(driverref);
+			DriverManager.registerDriver(driverref);
 			 
-			 String dburl = "jdbc:mysql://localhost:3306/job";
+			String dburl = "jdbc:mysql://localhost:3306/job";
 			 
-			Connection CON =  DriverManager.getConnection(dburl, "root", "root");
+			CON =  DriverManager.getConnection(dburl, "root", "root");
 			
 			String query = "select * from candidate";
 			
 			String path = "resume.txt";
 			FileWriter filewriter = new FileWriter(path);
 			
-			Statement stmt = CON.createStatement();
+			stmt = CON.createStatement();
 			
 			ResultSet res = stmt.executeQuery(query);
 			
@@ -51,11 +55,25 @@ public class RetrieveCandidateDetails {
 				 
 				 System.out.println(res.getString("resume"));
 			}
-	
-			
+		
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
+		}
+		finally {
+			try {
+				
+				if(CON!=null) {
+					CON.close();
+				}
+				if(stmt!=null) {
+					stmt.close();
+				}
+				
+			}catch(SQLException e2) {
+				
+				e2.printStackTrace();
+			}
 		}
 		
 	}
