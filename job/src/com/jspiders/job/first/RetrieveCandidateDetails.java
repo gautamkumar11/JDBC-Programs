@@ -1,6 +1,5 @@
 package com.jspiders.job.first;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
@@ -27,41 +26,32 @@ public class RetrieveCandidateDetails {
 			
 			String query = "select * from candidate";
 			
-			File file = new File("resume.txt");
-			FileWriter filewriter = new FileWriter(file);
+			String path = "resume.txt";
+			FileWriter filewriter = new FileWriter(path);
 			
 			Statement stmt = CON.createStatement();
 			
 			ResultSet res = stmt.executeQuery(query);
 			
-			
-			String writeresume= "";
-			
-		/*	while(res.next())
+			while(res.next())
 			{
 				System.out.println("name = "+res.getString("name"));
 				System.out.println("email = "+res.getString("email"));
 				System.out.println("contact = "+res.getString("contact"));
 				
+				Reader reader = res.getCharacterStream("resume");
 				
-				
+				int i;
+				while ((i=reader.read())!=-1)
+				{
+		               filewriter.write(i);
+		         }
+				 filewriter.flush();
+				 filewriter.close();
+				 
+				 System.out.println(res.getString("resume"));
 			}
-			
-			Reader reader = res.getCharacterStream("resume");
-			int read = reader.read();
-			
-			System.out.println(read);
-			while(read!=-1)
-			{
-				char c=(char)read;
-				writeresume= writeresume + c;
-			}
-			filewriter.write(writeresume);
-			filewriter.flush();
-			filewriter.close();
-			System.out.println("resume = "+writeresume);
-			 
-			*/ 
+	
 			
 		} catch (SQLException e) {
 			
